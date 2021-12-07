@@ -27,6 +27,11 @@ public class GeradorPDF {
             document.add(new Paragraph("Gerando meu primeiro PDF atraves do iText com Java.",
                     FontFactory.getFont(FontFactory.COURIER_OBLIQUE, 18)));
 
+            //Adição de imagem
+            Image jpg = Image.getInstance("/home/arieltintel/Imagens/java.jpeg");
+            jpg.setAlignment(Element.ALIGN_CENTER);
+            document.add(jpg);
+
         } catch (DocumentException documentException) {
             System.err.println(documentException.getMessage());
         } catch (IOException ioException) {
