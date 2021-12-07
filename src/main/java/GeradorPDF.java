@@ -1,7 +1,4 @@
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.FileOutputStream;
@@ -20,10 +17,14 @@ public class GeradorPDF {
             PdfWriter.getInstance(document, new FileOutputStream("/home/arieltintel/projetos/DocumentoTeste.pdf"));
             document.open();
 
-            //Paragrafos
-            document.add(new Paragraph("Arquivo PDF gerado via iText em Java",
-                    FontFactory.getFont(FontFactory.TIMES_BOLD, 20)));
-            document.add(new Paragraph("Gerando meu primeiro PDF atraves do iText com Java",
+            //Paragrafos Centralizado
+            Paragraph paragraph1 = new Paragraph("Arquivo PDF gerado via iText em Java",
+                    FontFactory.getFont(FontFactory.TIMES_BOLD, 20));
+            paragraph1.setAlignment(Element.ALIGN_CENTER);
+            document.add(paragraph1);
+
+            //Paragrafo Comum
+            document.add(new Paragraph("Gerando meu primeiro PDF atraves do iText com Java.",
                     FontFactory.getFont(FontFactory.COURIER_OBLIQUE, 18)));
 
         } catch (DocumentException documentException) {
