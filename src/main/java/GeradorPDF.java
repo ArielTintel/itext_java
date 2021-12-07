@@ -1,4 +1,6 @@
 import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.FileOutputStream;
@@ -31,6 +33,22 @@ public class GeradorPDF {
             Image jpg = Image.getInstance("/home/arieltintel/Imagens/java.jpeg");
             jpg.setAlignment(Element.ALIGN_CENTER);
             document.add(jpg);
+
+            //Tabelas
+            PdfPTable pdfPTable = new PdfPTable(3);
+            //Espaçamento ANTES da tabela.
+            pdfPTable.setSpacingBefore(20);
+            
+            PdfPCell tituloTabela = new PdfPCell(new Paragraph("Time da Seleção Brasileira"));
+            tituloTabela.setColspan(3);
+            pdfPTable.addCell(tituloTabela);
+            pdfPTable.addCell("Gabriel Barbosa");
+            pdfPTable.addCell("Daniel Alves");
+            pdfPTable.addCell("Alex Sandro");
+            pdfPTable.addCell("Richarlison");
+            pdfPTable.addCell("Fabinho");
+            pdfPTable.addCell("Raphinha");
+            document.add(pdfPTable);
 
         } catch (DocumentException documentException) {
             System.err.println(documentException.getMessage());
