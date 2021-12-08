@@ -30,7 +30,7 @@ public class GeradorPDF {
                     FontFactory.getFont(FontFactory.COURIER_OBLIQUE, 18)));
 
             //Adição de imagem
-            Image jpg = Image.getInstance("/home/arieltintel/Imagens/java.jpeg");
+            Image jpg = Image.getInstance("/home/arieltintel/Imagens/perfil/Ariel_quadrado azul (1).png");
             jpg.setAlignment(Element.ALIGN_CENTER);
             document.add(jpg);
 
@@ -38,7 +38,7 @@ public class GeradorPDF {
             PdfPTable pdfPTable = new PdfPTable(3);
             //Espaçamento ANTES da tabela.
             pdfPTable.setSpacingBefore(20);
-            
+
             PdfPCell tituloTabela = new PdfPCell(new Paragraph("Time da Seleção Brasileira"));
             tituloTabela.setColspan(3);
             pdfPTable.addCell(tituloTabela);
