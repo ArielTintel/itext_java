@@ -1,4 +1,4 @@
-package relatorios;
+package relatorios.acessos;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -8,6 +8,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Acesso {
@@ -33,7 +34,7 @@ public class Acesso {
             document.add(tituloParagraph);
 
             //Segundo Paragrafo
-            Paragraph paragraphEmpresa = new Paragraph("Empresa: {nomeEmpresa}",
+            Paragraph paragraphEmpresa = new Paragraph("Empresa: Flow Tecnologia",
                     FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12,azulEscuro));
             paragraphEmpresa.setAlignment(Element.ALIGN_CENTER);
             paragraphEmpresa.setSpacingAfter(5);
@@ -56,38 +57,34 @@ public class Acesso {
             document.add(tabela1);
 
             PdfPTable tabela2 = new PdfPTable(3);
-            tabela2.getDefaultCell().setMinimumHeight(25);
-
+            tabela2.getDefaultCell().setMinimumHeight(50);
             PdfPCell celula2 = new PdfPCell();
             celula2.setBorderColor(new BaseColor(199,21,133));
 
-            tabela2.setWidths(new int[] {20,15,13});
+            tabela2.setWidths(new int[] {25,14,14});
             tabela2.getDefaultCell().setBorderColor(new BaseColor(255,0,255));
             tabela2.getDefaultCell().setBorder(Rectangle.NO_BORDER);
-            celula2.setColspan(20);
+            celula2.setColspan(999);
             tabela2.addCell(celula2);
-            List<String> list = new ArrayList<String>();
-            list.add("{NomeFuncionario}");
-            list.add("{DataEHora}");
-            list.add("{DataEHora}");
-            list.add("{NomeFuncionario}");
-            list.add("{DataEHora}");
-            list.add("{DataEHora}");
-            list.add("{NomeFuncionario}");
-            list.add("{DataEHora}");
-            list.add("{DataEHora}");
-            for (String conteudoCelula : list) {
+            //List<String> list = new ArrayList<String>();
+            tabela2.addCell("Alexandre Dias de Araujo");
+            tabela2.addCell("27/11/2021 12:35:00");
+            tabela2.addCell("04/12/2021 12:35:00");
+            tabela2.addCell("Aline Vergara");
+            tabela2.addCell("30/10/2021 12:35:00");
+            tabela2.addCell("14/11/2021 12:35:00");
+            tabela2.addCell("Ariel Andrade Tintel");
+            tabela2.addCell("01/12/2021 12:35:00");
+            tabela2.addCell("09/11/2021 12:35:00");
+            /*for (String conteudoCelula : list) {
                 tabela2.addCell(conteudoCelula);
-            }
+            }*/
             document.add(tabela2);
-
         } catch (DocumentException documentException) {
             System.err.println(documentException.getMessage());
         } catch (IOException ioException) {
             System.err.println(ioException.getMessage());
         }
         document.close();
-
-        System.out.println("GERADO COM SUCESSO");
     }
 }
